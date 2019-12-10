@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		848E8BBB23A01727009082BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E8BBA23A01727009082BB /* AppDelegate.swift */; };
+		848E8BBD23A01727009082BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E8BBC23A01727009082BB /* SceneDelegate.swift */; };
+		848E8BBF23A01727009082BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E8BBE23A01727009082BB /* ViewController.swift */; };
+		848E8BC223A01727009082BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848E8BC023A01727009082BB /* Main.storyboard */; };
+		848E8BC423A0172A009082BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848E8BC323A0172A009082BB /* Assets.xcassets */; };
+		848E8BC723A0172B009082BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848E8BC523A0172B009082BB /* LaunchScreen.storyboard */; };
+		848E8BD223A0172B009082BB /* Landmark_RemarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E8BD123A0172B009082BB /* Landmark_RemarkTests.swift */; };
+		848E8BDD23A0172B009082BB /* Landmark_RemarkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E8BDC23A0172B009082BB /* Landmark_RemarkUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		848E8BCE23A0172B009082BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 848E8BAF23A01727009082BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 848E8BB623A01727009082BB;
+			remoteInfo = "Landmark Remark";
+		};
+		848E8BD923A0172B009082BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 848E8BAF23A01727009082BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 848E8BB623A01727009082BB;
+			remoteInfo = "Landmark Remark";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		848E8BB723A01727009082BB /* Landmark Remark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Landmark Remark.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		848E8BBA23A01727009082BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		848E8BBC23A01727009082BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		848E8BBE23A01727009082BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		848E8BC123A01727009082BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		848E8BC323A0172A009082BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		848E8BC623A0172B009082BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		848E8BC823A0172B009082BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		848E8BCD23A0172B009082BB /* Landmark RemarkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Landmark RemarkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		848E8BD123A0172B009082BB /* Landmark_RemarkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark_RemarkTests.swift; sourceTree = "<group>"; };
+		848E8BD323A0172B009082BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		848E8BD823A0172B009082BB /* Landmark RemarkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Landmark RemarkUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		848E8BDC23A0172B009082BB /* Landmark_RemarkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark_RemarkUITests.swift; sourceTree = "<group>"; };
+		848E8BDE23A0172B009082BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		848E8BB423A01727009082BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		848E8BCA23A0172B009082BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		848E8BD523A0172B009082BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		848E8BAE23A01727009082BB = {
+			isa = PBXGroup;
+			children = (
+				848E8BB923A01727009082BB /* Landmark Remark */,
+				848E8BD023A0172B009082BB /* Landmark RemarkTests */,
+				848E8BDB23A0172B009082BB /* Landmark RemarkUITests */,
+				848E8BB823A01727009082BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		848E8BB823A01727009082BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				848E8BB723A01727009082BB /* Landmark Remark.app */,
+				848E8BCD23A0172B009082BB /* Landmark RemarkTests.xctest */,
+				848E8BD823A0172B009082BB /* Landmark RemarkUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		848E8BB923A01727009082BB /* Landmark Remark */ = {
+			isa = PBXGroup;
+			children = (
+				848E8BBA23A01727009082BB /* AppDelegate.swift */,
+				848E8BBC23A01727009082BB /* SceneDelegate.swift */,
+				848E8BBE23A01727009082BB /* ViewController.swift */,
+				848E8BC023A01727009082BB /* Main.storyboard */,
+				848E8BC323A0172A009082BB /* Assets.xcassets */,
+				848E8BC523A0172B009082BB /* LaunchScreen.storyboard */,
+				848E8BC823A0172B009082BB /* Info.plist */,
+			);
+			path = "Landmark Remark";
+			sourceTree = "<group>";
+		};
+		848E8BD023A0172B009082BB /* Landmark RemarkTests */ = {
+			isa = PBXGroup;
+			children = (
+				848E8BD123A0172B009082BB /* Landmark_RemarkTests.swift */,
+				848E8BD323A0172B009082BB /* Info.plist */,
+			);
+			path = "Landmark RemarkTests";
+			sourceTree = "<group>";
+		};
+		848E8BDB23A0172B009082BB /* Landmark RemarkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				848E8BDC23A0172B009082BB /* Landmark_RemarkUITests.swift */,
+				848E8BDE23A0172B009082BB /* Info.plist */,
+			);
+			path = "Landmark RemarkUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		848E8BB623A01727009082BB /* Landmark Remark */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 848E8BE123A0172B009082BB /* Build configuration list for PBXNativeTarget "Landmark Remark" */;
+			buildPhases = (
+				848E8BB323A01727009082BB /* Sources */,
+				848E8BB423A01727009082BB /* Frameworks */,
+				848E8BB523A01727009082BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Landmark Remark";
+			productName = "Landmark Remark";
+			productReference = 848E8BB723A01727009082BB /* Landmark Remark.app */;
+			productType = "com.apple.product-type.application";
+		};
+		848E8BCC23A0172B009082BB /* Landmark RemarkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 848E8BE423A0172B009082BB /* Build configuration list for PBXNativeTarget "Landmark RemarkTests" */;
+			buildPhases = (
+				848E8BC923A0172B009082BB /* Sources */,
+				848E8BCA23A0172B009082BB /* Frameworks */,
+				848E8BCB23A0172B009082BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				848E8BCF23A0172B009082BB /* PBXTargetDependency */,
+			);
+			name = "Landmark RemarkTests";
+			productName = "Landmark RemarkTests";
+			productReference = 848E8BCD23A0172B009082BB /* Landmark RemarkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		848E8BD723A0172B009082BB /* Landmark RemarkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 848E8BE723A0172B009082BB /* Build configuration list for PBXNativeTarget "Landmark RemarkUITests" */;
+			buildPhases = (
+				848E8BD423A0172B009082BB /* Sources */,
+				848E8BD523A0172B009082BB /* Frameworks */,
+				848E8BD623A0172B009082BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				848E8BDA23A0172B009082BB /* PBXTargetDependency */,
+			);
+			name = "Landmark RemarkUITests";
+			productName = "Landmark RemarkUITests";
+			productReference = 848E8BD823A0172B009082BB /* Landmark RemarkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		848E8BAF23A01727009082BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Ahmad Waqas";
+				TargetAttributes = {
+					848E8BB623A01727009082BB = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					848E8BCC23A0172B009082BB = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 848E8BB623A01727009082BB;
+					};
+					848E8BD723A0172B009082BB = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 848E8BB623A01727009082BB;
+					};
+				};
+			};
+			buildConfigurationList = 848E8BB223A01727009082BB /* Build configuration list for PBXProject "Landmark Remark" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 848E8BAE23A01727009082BB;
+			productRefGroup = 848E8BB823A01727009082BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				848E8BB623A01727009082BB /* Landmark Remark */,
+				848E8BCC23A0172B009082BB /* Landmark RemarkTests */,
+				848E8BD723A0172B009082BB /* Landmark RemarkUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		848E8BB523A01727009082BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				848E8BC723A0172B009082BB /* LaunchScreen.storyboard in Resources */,
+				848E8BC423A0172A009082BB /* Assets.xcassets in Resources */,
+				848E8BC223A01727009082BB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		848E8BCB23A0172B009082BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		848E8BD623A0172B009082BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		848E8BB323A01727009082BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				848E8BBF23A01727009082BB /* ViewController.swift in Sources */,
+				848E8BBB23A01727009082BB /* AppDelegate.swift in Sources */,
+				848E8BBD23A01727009082BB /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		848E8BC923A0172B009082BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				848E8BD223A0172B009082BB /* Landmark_RemarkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		848E8BD423A0172B009082BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				848E8BDD23A0172B009082BB /* Landmark_RemarkUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		848E8BCF23A0172B009082BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 848E8BB623A01727009082BB /* Landmark Remark */;
+			targetProxy = 848E8BCE23A0172B009082BB /* PBXContainerItemProxy */;
+		};
+		848E8BDA23A0172B009082BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 848E8BB623A01727009082BB /* Landmark Remark */;
+			targetProxy = 848E8BD923A0172B009082BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		848E8BC023A01727009082BB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				848E8BC123A01727009082BB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		848E8BC523A0172B009082BB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				848E8BC623A0172B009082BB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		848E8BDF23A0172B009082BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		848E8BE023A0172B009082BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		848E8BE223A0172B009082BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Landmark Remark/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ahmad.Landmark-Remark";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		848E8BE323A0172B009082BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Landmark Remark/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ahmad.Landmark-Remark";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		848E8BE523A0172B009082BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Landmark RemarkTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ahmad.Landmark-RemarkTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Landmark Remark.app/Landmark Remark";
+			};
+			name = Debug;
+		};
+		848E8BE623A0172B009082BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Landmark RemarkTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ahmad.Landmark-RemarkTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Landmark Remark.app/Landmark Remark";
+			};
+			name = Release;
+		};
+		848E8BE823A0172B009082BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Landmark RemarkUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ahmad.Landmark-RemarkUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Landmark Remark";
+			};
+			name = Debug;
+		};
+		848E8BE923A0172B009082BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Landmark RemarkUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ahmad.Landmark-RemarkUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Landmark Remark";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		848E8BB223A01727009082BB /* Build configuration list for PBXProject "Landmark Remark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				848E8BDF23A0172B009082BB /* Debug */,
+				848E8BE023A0172B009082BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		848E8BE123A0172B009082BB /* Build configuration list for PBXNativeTarget "Landmark Remark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				848E8BE223A0172B009082BB /* Debug */,
+				848E8BE323A0172B009082BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		848E8BE423A0172B009082BB /* Build configuration list for PBXNativeTarget "Landmark RemarkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				848E8BE523A0172B009082BB /* Debug */,
+				848E8BE623A0172B009082BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		848E8BE723A0172B009082BB /* Build configuration list for PBXNativeTarget "Landmark RemarkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				848E8BE823A0172B009082BB /* Debug */,
+				848E8BE923A0172B009082BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 848E8BAF23A01727009082BB /* Project object */;
+}
