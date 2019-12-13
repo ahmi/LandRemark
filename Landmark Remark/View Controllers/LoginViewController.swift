@@ -7,20 +7,18 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var lblError: UILabel!
     @IBOutlet weak var btnSignin: UIButton!
     @IBOutlet weak var tfUserName: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
-    @IBAction func btnSignIn_tapped(_ sender: Any) {
-        
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUIElements()
-
+        
         // Do any additional setup after loading the view.
     }
     func setupUIElements() {
@@ -33,15 +31,46 @@ class LoginViewController: UIViewController {
         Utilities.styleFilledButton(btnSignin)
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARL:- Button action
+    @IBAction func btnSignIn_tapped(_ sender: Any) {
+        let error = validateForm()
+        if error != nil {
+            //There is something wrong with input
+            showErrorMessage(err: error!)
+        } else {
+            //Create clean strings from textfields for creating user in database
+            let emailString = tfUserName.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let password = tfPassword.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            Auth.auth().signIn(withEmail: emailString, password: password) { (result, error) in
+                if error != nil  {
+                    self.lblError.text = error?.localizedDescription
+                } else {
+                    self.transitionToHomeVC()
+                }
+            }
+            
+        }
     }
-    */
-
+    //MARK:- Helper Funcs
+    func validateForm() -> String?{
+        
+        //Check if all fields are filled
+        if tfPassword.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            tfUserName.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            !Utilities.isValidEmail(emailStr: tfUserName.text!){
+            
+            return "Please fill all fields with correct data."
+        }
+        return nil
+    }
+    func showErrorMessage(err: String) {
+        lblError.text = err
+        lblError.alpha = 1
+    }
+    func transitionToHomeVC()  {
+        //set map screen as root view controller, purge login, signup, home screens from memory
+        let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? UINavigationController
+        view.window?.rootViewController = homeVC
+        view.window?.makeKeyAndVisible()
+    }
 }

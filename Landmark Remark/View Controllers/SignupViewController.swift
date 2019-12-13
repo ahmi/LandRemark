@@ -9,19 +9,21 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseDatabase
+
 class SignupViewController: UIViewController {
     @IBOutlet weak var tfFirstName: UITextField!
-    
     @IBOutlet weak var tfLastName: UITextField!
     @IBOutlet weak var tfRePassword: UITextField!
     @IBOutlet weak var btnSignup: UIButton!
     @IBOutlet weak var tfPassword: UITextField!
     @IBOutlet weak var tfEmail: UITextField!
     @IBOutlet weak var lblError: UILabel!
-    
+    var ref: DatabaseReference?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUIElements()
+        self.ref = Database.database().reference()
         
         // Do any additional setup after loading the view.
     }
@@ -65,7 +67,7 @@ class SignupViewController: UIViewController {
         let passwordString = tfPassword.text!
         
         if Utilities.isPasswordValid(passwordString) == false {
-            return "Please make sure password is 8 characters long, contains a special characters long and atleast a number."
+            return "Please make sure password is 6 characters long, contains a special characters and atleast a number."
         }
         return nil
     }
@@ -78,6 +80,7 @@ class SignupViewController: UIViewController {
     //MARK: - Button action
     @IBAction func btnSignup_tapped(_ sender: Any) {
         let error = validateForm()
+        //self.createUserWithRealTimeDB()
         if error != nil {
             //There is something wrong with input
             showErrorMessage(err: error!)
@@ -88,23 +91,43 @@ class SignupViewController: UIViewController {
             let lastNAme = tfLastName.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             //Call Firebase Create  user method to create a user account
             Auth.auth().createUser(withEmail: emailString, password: tfPassword.text!) { (result, error) in
-                print("Result \(result!)")
+                
                 if result != nil
                 {
-                    let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["firstname":firstName,"lastname":lastNAme,"email":self.tfEmail.text!, "uid": result!.user.uid]){(error) in
-                        
+                    self.ref!.child("users").child(result!.user.uid).setValue(["firstname":firstName,"lastname":lastNAme,"email":self.tfEmail.text!, "uid": result!.user.uid]) {  (error, dbreference)  in
                         if error != nil
                         {
                             //there is something wrong with creating data in user
+                            self.lblError.text = error!.localizedDescription
+                        }
+                        else{
+                            self.loginWithCredentials()
                         }
                     }
                 } else
                 {
-                        self.lblError.text = error?.localizedDescription
+                    self.lblError.text = error?.localizedDescription
                 }
                 
             }
         }
     }
+    
+    func loginWithCredentials()  {
+        Auth.auth().signIn(withEmail: self.tfEmail.text!,
+                           password: self.tfPassword.text!){(result, Error) in
+                            if result != nil{
+                                //set current user
+                                self.transitionToHomeVC()
+                            }else{
+                                self.lblError.text = Error?.localizedDescription
+                            }
+        }
+    }
+    func transitionToHomeVC()  {
+        let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? UINavigationController
+        view.window?.rootViewController = homeVC
+        view.window?.makeKeyAndVisible()
+    }
+    
 }
