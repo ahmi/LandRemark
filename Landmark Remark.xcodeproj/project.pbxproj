@@ -27,6 +27,11 @@
 		84C3A18B23A3DCDF00B7D638 /* DBNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3A18A23A3DCDF00B7D638 /* DBNote.swift */; };
 		84C3A18D23A3E22700B7D638 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3A18C23A3E22700B7D638 /* Constants.swift */; };
 		84C3A18F23A3E31700B7D638 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3A18E23A3E31700B7D638 /* Utilities.swift */; };
+		84C3A19523A3E54B00B7D638 /* NotesAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3A19123A3E54B00B7D638 /* NotesAnnotationView.swift */; };
+		84C3A19623A3E54B00B7D638 /* NoteDetailMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C3A19223A3E54B00B7D638 /* NoteDetailMapView.xib */; };
+		84C3A19723A3E54B00B7D638 /* NoteDetailMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3A19323A3E54B00B7D638 /* NoteDetailMapView.swift */; };
+		84C3A19823A3E54B00B7D638 /* NoteAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3A19423A3E54B00B7D638 /* NoteAnnotation.swift */; };
+		84C3A19A23A4C74F00B7D638 /* NotesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3A19923A4C74F00B7D638 /* NotesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +79,11 @@
 		84C3A18A23A3DCDF00B7D638 /* DBNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBNote.swift; sourceTree = "<group>"; };
 		84C3A18C23A3E22700B7D638 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		84C3A18E23A3E31700B7D638 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		84C3A19123A3E54B00B7D638 /* NotesAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesAnnotationView.swift; sourceTree = "<group>"; };
+		84C3A19223A3E54B00B7D638 /* NoteDetailMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteDetailMapView.xib; sourceTree = "<group>"; };
+		84C3A19323A3E54B00B7D638 /* NoteDetailMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailMapView.swift; sourceTree = "<group>"; };
+		84C3A19423A3E54B00B7D638 /* NoteAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteAnnotation.swift; sourceTree = "<group>"; };
+		84C3A19923A4C74F00B7D638 /* NotesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesManager.swift; sourceTree = "<group>"; };
 		A671BA5E61B2C30655F42C4C /* Pods_Landmark_Remark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Landmark_Remark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CCCFD010884838D5D0933B /* Pods-Landmark Remark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Landmark Remark.release.xcconfig"; path = "Target Support Files/Pods-Landmark Remark/Pods-Landmark Remark.release.xcconfig"; sourceTree = "<group>"; };
 		CFFE6D5F5303B551E51ABFC1 /* Pods-Landmark RemarkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Landmark RemarkTests.release.xcconfig"; path = "Target Support Files/Pods-Landmark RemarkTests/Pods-Landmark RemarkTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +145,7 @@
 		848E8BB923A01727009082BB /* Landmark Remark */ = {
 			isa = PBXGroup;
 			children = (
+				84C3A19023A3E54B00B7D638 /* CustomViewNoteAnnotation */,
 				84C3A18723A3D83D00B7D638 /* Models */,
 				84C3A17C23A0299F00B7D638 /* Helpers */,
 				848E8BF023A017A4009082BB /* View Controllers */,
@@ -194,6 +205,18 @@
 				84C3A18A23A3DCDF00B7D638 /* DBNote.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		84C3A19023A3E54B00B7D638 /* CustomViewNoteAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				84C3A19123A3E54B00B7D638 /* NotesAnnotationView.swift */,
+				84C3A19223A3E54B00B7D638 /* NoteDetailMapView.xib */,
+				84C3A19323A3E54B00B7D638 /* NoteDetailMapView.swift */,
+				84C3A19423A3E54B00B7D638 /* NoteAnnotation.swift */,
+				84C3A19923A4C74F00B7D638 /* NotesManager.swift */,
+			);
+			path = CustomViewNoteAnnotation;
 			sourceTree = "<group>";
 		};
 		987ABC0A5B5B34ECE7AEF395 /* Frameworks */ = {
@@ -331,6 +354,7 @@
 				848E8BC723A0172B009082BB /* LaunchScreen.storyboard in Resources */,
 				84C3A18423A035E100B7D638 /* GoogleService-Info.plist in Resources */,
 				848E8BC423A0172A009082BB /* Assets.xcassets in Resources */,
+				84C3A19623A3E54B00B7D638 /* NoteDetailMapView.xib in Resources */,
 				848E8BC223A01727009082BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,15 +466,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C3A19723A3E54B00B7D638 /* NoteDetailMapView.swift in Sources */,
 				848E8BEB23A01745009082BB /* LoginViewController.swift in Sources */,
 				848E8BED23A01755009082BB /* SignupViewController.swift in Sources */,
+				84C3A19A23A4C74F00B7D638 /* NotesManager.swift in Sources */,
 				84C3A18223A02BA900B7D638 /* InitialViewController.swift in Sources */,
 				84C3A18923A3D86000B7D638 /* DBUser.swift in Sources */,
 				848E8BBB23A01727009082BB /* AppDelegate.swift in Sources */,
 				84C3A18D23A3E22700B7D638 /* Constants.swift in Sources */,
+				84C3A19523A3E54B00B7D638 /* NotesAnnotationView.swift in Sources */,
 				84C3A18B23A3DCDF00B7D638 /* DBNote.swift in Sources */,
 				848E8BBD23A01727009082BB /* SceneDelegate.swift in Sources */,
 				84C3A18F23A3E31700B7D638 /* Utilities.swift in Sources */,
+				84C3A19823A3E54B00B7D638 /* NoteAnnotation.swift in Sources */,
 				848E8BEF23A01761009082BB /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,4 +24,6 @@ struct DBUser {
         self.firstname = fname
         self.lastname = lname
     }
+    
+    
 }

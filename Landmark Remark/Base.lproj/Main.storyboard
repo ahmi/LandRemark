@@ -137,9 +137,15 @@
                                     <constraint firstAttribute="height" constant="44" id="px2-xi-TdP"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lDQ-dS-Gcs" id="l0V-Cz-aTc"/>
+                                </connections>
                             </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cku-0G-2Uh">
                                 <rect key="frame" x="0.0" y="132" width="414" height="730"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lDQ-dS-Gcs" id="3GN-aC-J8E"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -155,7 +161,11 @@
                         <viewLayoutGuide key="safeArea" id="eni-qO-cd3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="lYM-db-hDV">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="EEE-9k-hDb"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="EEE-9k-hDb">
+                            <connections>
+                                <action selector="btnLogout_tapped:" destination="lDQ-dS-Gcs" id="b4Y-tz-ULy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapViewNotes" destination="cku-0G-2Uh" id="441-xl-adn"/>
@@ -254,7 +264,7 @@
         <!--Navigation Controller-->
         <scene sceneID="LZV-PX-qId">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hUT-r6-WwV" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="InitialVC" automaticallyAdjustsScrollViewInsets="NO" id="hUT-r6-WwV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AMn-uI-ox3">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

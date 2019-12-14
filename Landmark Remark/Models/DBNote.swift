@@ -12,14 +12,14 @@ import FirebaseDatabase
 struct DBNote {
     let ref: DatabaseReference?
     let note_text :String
-    let lat: NSNumber
-    let lon:NSNumber
+    let lat: Double
+    let lon:Double
     let location:String
     let addedByUser: String
     var is_public:Bool
     let key:String
     
-    init(note_text: String, addedByUser: String,lat:NSNumber,lon:NSNumber, is_public: Bool, key: String = "", location: String) {
+    init(note_text: String, addedByUser: String,lat:Double,lon:Double, is_public: Bool, key: String = "", location: String) {
         self.ref = nil
         self.key = key
         self.note_text = note_text
@@ -35,8 +35,8 @@ struct DBNote {
             let note_text = value["note_text"] as? String,
             let addedByUser = value["addedByUser"] as? String,
             let location = value["location"] as? String,
-            let lat = value["lat"] as? NSNumber,
-            let lon = value["lon"] as? NSNumber,
+            let lat = value["lat"] as? Double,
+            let lon = value["lon"] as? Double,
             let is_public = value["is_public"] as? Bool else {
                 return nil
         }

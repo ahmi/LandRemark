@@ -94,7 +94,7 @@ class SignupViewController: UIViewController {
                 
                 if result != nil
                 {
-                    self.ref!.child("users").child(result!.user.uid).setValue(["firstname":firstName,"lastname":lastNAme,"email":self.tfEmail.text!, "uid": result!.user.uid]) {  (error, dbreference)  in
+                    self.ref!.child("users").child(result!.user.uid).setValue(["firstname":firstName,"lastname":lastNAme,"displayName":firstName + " " + lastNAme ,"email":self.tfEmail.text!, "uid": result!.user.uid]) {  (error, dbreference)  in
                         if error != nil
                         {
                             //there is something wrong with creating data in user
@@ -117,7 +117,7 @@ class SignupViewController: UIViewController {
         Auth.auth().signIn(withEmail: self.tfEmail.text!,
                            password: self.tfPassword.text!){(result, Error) in
                             if result != nil{
-                                //set current user
+                                
                                 self.transitionToHomeVC()
                             }else{
                                 self.lblError.text = Error?.localizedDescription
@@ -125,6 +125,18 @@ class SignupViewController: UIViewController {
         }
     }
     func transitionToHomeVC()  {
+        
+        //set current user
+        let user = Auth.auth().currentUser;
+        var nam:String
+        var email:String
+        var uid:String
+
+        if (user != nil) {
+            nam = user?.displayName ?? "";
+            email = user?.email ?? "";
+            uid = user?.uid ?? "";
+        }
         let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? UINavigationController
         view.window?.rootViewController = homeVC
         view.window?.makeKeyAndVisible()

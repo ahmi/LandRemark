@@ -15,6 +15,7 @@ struct Constants {
     struct Storyboard {
         
         static let homeViewController = "HomeVC"
+        static let initialViewController = "InitialVC"
         static let kNoteAnnotationName = "kNoteAnnotationName"
         
     }
