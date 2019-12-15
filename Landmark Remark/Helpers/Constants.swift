@@ -20,6 +20,11 @@ struct Constants {
         static let kNoteAnnotationName = "kNoteAnnotationName"
         
         
+        
+    }
+    
+    struct ErrorMessage {
+       static let kErrorFillAllFields  = "Please fill all fields with correct data."
     }
     
     

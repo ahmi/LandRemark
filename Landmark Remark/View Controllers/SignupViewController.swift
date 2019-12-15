@@ -54,7 +54,8 @@ class SignupViewController: UIViewController {
             tfRePassword.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             !Utilities.isValidEmail(emailStr: tfEmail.text!){
             
-            return "Please fill all fields with correct data."
+            return Constants.ErrorMessage.kErrorFillAllFields
+            //rest of them can also be added in constant file but leaving them atm
         }
         //Check if both password fields match
         if (tfPassword.text != tfRePassword.text) {

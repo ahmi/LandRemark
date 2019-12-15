@@ -30,8 +30,8 @@
             filePath = "Landmark Remark/View Controllers/CreateNoteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "btnSaveNote_tapped(_:)"
             landmarkType = "7">
             <Locations>
@@ -46,9 +46,9 @@
                   urlString = "file:///Users/admin/Desktop/My%20Data%202019/Dev%20Projects/Xcode%20Projects/Landmark%20Remark/Landmark%20Remark/View%20Controllers/CreateNoteViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "358">
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "818">
                </Location>
                <Location
                   uuid = "71E07500-25C1-4EDA-8EF2-2F3FB6C4DACF - 775b5831f742ead6"
@@ -61,9 +61,9 @@
                   urlString = "file:///Users/admin/Desktop/My%20Data%202019/Dev%20Projects/Xcode%20Projects/Landmark%20Remark/Landmark%20Remark/View%20Controllers/CreateNoteViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "82">
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "118">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -78,9 +78,9 @@
             filePath = "Landmark Remark/View Controllers/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
-            landmarkName = "createNoteAtCurrentLocation()"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "btnLogout_tapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -94,8 +94,8 @@
             filePath = "Landmark Remark/View Controllers/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
             landmarkName = "btnLogout_tapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +110,8 @@
             filePath = "Landmark Remark/View Controllers/CreateNoteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "btnSaveNote_tapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "Landmark Remark/View Controllers/CreateNoteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "btnSaveNote_tapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "Landmark Remark/View Controllers/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "configureAllNotesInMap()"
             landmarkType = "7">
          </BreakpointContent>
