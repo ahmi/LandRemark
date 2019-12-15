@@ -23,6 +23,7 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
     var databaseHandle:DatabaseHandle?
     var notesFilteredArray: [DBNote]  = []
     var isShowingFilteredNotes = false
+    var current_location:CLLocation = CLLocation()
     
     
     override func viewDidLoad() {
@@ -133,6 +134,9 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
         if status == .authorizedWhenInUse {
             mapViewNotes.showsUserLocation = true
         }
+        if(status == CLAuthorizationStatus.denied) {
+            Utilities.showAlertMessage(vc: self, titleStr: "Error", messageStr: "Please check settings for location permissions")
+        }
     }
     //Called everytime user's location is updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -141,8 +145,10 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
         //Zoom to 1000 meters of user's current location
         let visibleRegion = MKCoordinateRegion(center: locValue, latitudinalMeters: 10000, longitudinalMeters: 10000)
         self.mapViewNotes.setRegion(self.mapViewNotes.regionThatFits(visibleRegion), animated: true)
+        //Save updated location, to use later when user add notes
+        current_location = locations[0] as CLLocation
     }
-    // MARK: Search bar delegates & filter functionality
+    // MARK: Search bar delegates
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = false
         self.searchBar.resignFirstResponder()
@@ -158,7 +164,7 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.endEditing(true)
         self.searchBar.resignFirstResponder()
-       // print ("search bar text : %@", self.searchBar.text!)
+        // print ("search bar text : %@", self.searchBar.text!)
         let searchString = searchBar.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         if (searchString.count > 0){
             self.searchNoteWithText(searchterm: searchString)
@@ -166,7 +172,7 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
             Utilities.showAlertMessage(vc: self, titleStr: "Error", messageStr: "Invalid search")
         }
     }
-    // MARK: - search
+    // MARK: - Filter Notes
     func searchNoteWithText(searchterm: String) {
         //re-initalise filtered notes array
         self.notesFilteredArray = [DBNote]()
@@ -182,10 +188,6 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
             self.isShowingFilteredNotes  = true
             self.configureAllNotesInMap()
         }
-    }
-    // MARK: Filter Notes
-    func filterNotesWithString(filterString: String!) -> [DBNote]? {
-        return nil
     }
     // MARK: - Button Actions
     
@@ -206,16 +208,11 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
     @IBAction func btnCreateNote_tapped(_ sender: Any) {
         //check if we have current location instance,
         //because it is required to create a note
-       // if self.mapViewNotes.userLocation.location{
-            self.createNoteAtCurrentLocation()
+        // if self.mapViewNotes.userLocation.location{
+        self.createNoteAtCurrentLocation()
         //}
     }
-    //present nav controller to create a note
-    //pass location data to create note screen to use in creating note
-    func createNoteAtCurrentLocation() {
-        guard let createNoteVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.createNoteViewController) as? UINavigationController else {return}
-        self.navigationController?.present(createNoteVC, animated: true, completion: nil)
-    }
+    
     @IBAction func btnLogout_tapped(_ sender: Any) {
         //create confirmation alert 
         let alert = UIAlertController(title: "Confirm Logout?", message: "This will log you out", preferredStyle: .alert)
@@ -233,5 +230,16 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
             }}))
         // show the alert
         self.present(alert, animated: true, completion: nil)
+    }
+    //MARK:- Helper
+    //present nav controller to create a note
+    //pass location data to create note screen to use in creating note
+    func createNoteAtCurrentLocation() {
+        guard let createVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.kCreateNoteVC) as? CreateNoteViewController else {
+            return
+        }
+        createVC.current_location = self.current_location
+        guard let createNoteNav = storyboard?.instantiateViewController(identifier: Constants.Storyboard.createNoteViewController) as? UINavigationController else {return}
+        self.navigationController?.present(createNoteNav, animated: true, completion: nil)
     }
 }

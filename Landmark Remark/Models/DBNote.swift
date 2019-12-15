@@ -18,7 +18,7 @@ struct DBNote {
     let addedByUser: String
     var is_public:Bool
     let key:String
-    
+    //in case we want to create whole object by value
     init(note_text: String, addedByUser: String,lat:Double,lon:Double, is_public: Bool, key: String = "", location: String) {
         self.ref = nil
         self.key = key
@@ -50,17 +50,7 @@ struct DBNote {
         self.is_public = is_public
         self.note_text = note_text
     }
-    
-    func toAnyObject() -> Any {
-      return [
-        "lat": lat,
-        "addedByUser": addedByUser,
-        "is_public": is_public,
-        "lon": lon,
-        "location": location,
-        "note_text": note_text
-      ]
-    }
+ 
     init?(dict: [String: Any], key:String) {
         guard
             let note_text = dict["note_text"] as? String,

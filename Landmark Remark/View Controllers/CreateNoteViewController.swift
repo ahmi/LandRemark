@@ -9,15 +9,16 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import CoreLocation
 class CreateNoteViewController: UIViewController,UITextViewDelegate {
     //Default switch value/is_public parameter
     var isNotePublic = true
+    var current_location:CLLocation = CLLocation()
     //Reference to notes directory at cloud
     let notesRef = Database.database().reference(withPath: "notes") //URL to notes table in db
     @IBOutlet weak var txtView_noteText: UITextView!
     @IBOutlet weak var btnSaveNote_tapped: UIBarButtonItem!
-   
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setAppearance()
@@ -26,6 +27,9 @@ class CreateNoteViewController: UIViewController,UITextViewDelegate {
     func setAppearance()  {
         self.txtView_noteText.layer.cornerRadius = 10.0
         self.txtView_noteText.backgroundColor = .lightText
+        txtView_noteText.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
+        txtView_noteText.layer.borderWidth = 1.0
+        txtView_noteText.layer.cornerRadius = 5
         self.txtView_noteText.text = "Enter your note here.."
         txtView_noteText.textColor = UIColor.lightGray
         txtView_noteText.becomeFirstResponder()
@@ -77,10 +81,13 @@ class CreateNoteViewController: UIViewController,UITextViewDelegate {
     
     //MARK:- Action Methods
     @IBAction func btnSaveNote_tapped(_ sender: Any) {
-        
+        if !validateForm() {
+            showNoteCreated(title: "Error", message: "Please Enter Valid Text..")
+            return
+        }
         let user = Auth.auth().currentUser!
          self.view.activityStartAnimating(activityColor: UIColor.white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
-        self.notesRef.childByAutoId().setValue(["note_text":"test note","addedByUser":user.displayName ?? "Anonymous", "location":"test location", "uid": user.uid,"is_public":isNotePublic,"lat": -33.884921, "lon":151.215827 ]) {  (error, dbreference)  in
+        self.notesRef.childByAutoId().setValue(["note_text":self.txtView_noteText.text ?? "This note text is placeholder in case of textview failure","addedByUser":user.displayName ?? "Anonymous user", "location":"test location", "uid": user.uid,"is_public":isNotePublic,"lat": -33.884921, "lon":151.215827 ]) {  (error, dbreference)  in
             self.view.activityStopAnimating()
             if error != nil
             {
@@ -105,7 +112,19 @@ class CreateNoteViewController: UIViewController,UITextViewDelegate {
         //value will be updated as switch value is changed.
         isNotePublic = sender.isOn
     }
-
+//MARK:- HElper methods
+    func validateForm() -> Bool {
+        if self.current_location != nil {
+            return true
+        }
+        
+        let text = self.txtView_noteText.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if text.count > 0 {
+            return true
+        }
+        
+        return false
+    }
     func showNoteCreated(title: String, message: String)  {
         let alertController = UIAlertController(title: title , message: message, preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in

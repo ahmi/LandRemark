@@ -184,7 +184,7 @@
         <!--Create Note-->
         <scene sceneID="Fi8-kZ-1zT">
             <objects>
-                <viewController id="SlS-dm-plR" customClass="CreateNoteViewController" customModule="Landmark_Remark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateNoteVC" id="SlS-dm-plR" customClass="CreateNoteViewController" customModule="Landmark_Remark" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8EB-1P-nqd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -203,13 +203,16 @@
                             </switch>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="azL-dz-fOy">
                                 <rect key="frame" x="20" y="152" width="374" height="100"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="qaK-BU-5Gg"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="SlS-dm-plR" id="1Vz-1n-6D1"/>
+                                </connections>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -371,7 +374,7 @@
         <scene sceneID="qNs-LI-mu4">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZ0-IU-0aY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController storyboardIdentifier="createnoteVC" automaticallyAdjustsScrollViewInsets="NO" id="y2j-Si-McV" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CreateNoteNav" automaticallyAdjustsScrollViewInsets="NO" id="y2j-Si-McV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HdO-sh-ubZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
