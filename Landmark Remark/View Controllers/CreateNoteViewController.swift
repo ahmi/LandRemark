@@ -47,10 +47,5 @@ class CreateNoteViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
-    
-    
-    
 }

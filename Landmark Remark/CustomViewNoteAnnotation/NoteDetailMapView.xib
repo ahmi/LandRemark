@@ -9,69 +9,50 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NoteDetailMapView" customModule="TestNotesApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NoteDetailMapView" customModule="Landmark_Remark" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="87"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4X-g7-cke">
-                    <rect key="frame" x="10" y="15" width="180" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="cAa-as-pzn"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="10" y="15" width="180" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQL-vG-1rG">
-                    <rect key="frame" x="10" y="54" width="180" height="14.5"/>
+                    <rect key="frame" x="10" y="39.5" width="180" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udc-Fn-GHV">
+                    <rect key="frame" x="10" y="64" width="180" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vvX-67-nqP">
-                    <rect key="frame" x="10" y="78.5" width="180" height="131.5"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</string>
-                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INh-xw-v2a">
-                    <rect key="frame" x="10" y="215" width="180" height="30"/>
-                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Dimiss">
-                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                    </state>
-                    <connections>
-                        <action selector="btnDismiss_tapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="dxS-zQ-zvK"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="q4X-g7-cke" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="0ki-EP-Hgd"/>
-                <constraint firstItem="INh-xw-v2a" firstAttribute="trailing" secondItem="vvX-67-nqP" secondAttribute="trailing" id="2cd-Qc-MSH"/>
-                <constraint firstItem="vvX-67-nqP" firstAttribute="top" secondItem="gQL-vG-1rG" secondAttribute="bottom" constant="10" id="5qA-P1-1IS"/>
-                <constraint firstItem="INh-xw-v2a" firstAttribute="top" secondItem="vvX-67-nqP" secondAttribute="bottom" constant="5" id="9Ip-lp-q8g"/>
-                <constraint firstItem="vvX-67-nqP" firstAttribute="leading" secondItem="gQL-vG-1rG" secondAttribute="leading" id="FRS-2X-EVb"/>
-                <constraint firstItem="gQL-vG-1rG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="Fb1-m3-tyw"/>
                 <constraint firstAttribute="trailing" secondItem="q4X-g7-cke" secondAttribute="trailing" constant="10" id="Fhu-ud-MF2"/>
                 <constraint firstItem="gQL-vG-1rG" firstAttribute="leading" secondItem="q4X-g7-cke" secondAttribute="leading" id="Jc5-RD-edV"/>
+                <constraint firstItem="udc-Fn-GHV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="JsA-gP-gXg"/>
                 <constraint firstItem="gQL-vG-1rG" firstAttribute="trailing" secondItem="q4X-g7-cke" secondAttribute="trailing" id="LyP-R9-vCM"/>
-                <constraint firstItem="INh-xw-v2a" firstAttribute="leading" secondItem="vvX-67-nqP" secondAttribute="leading" id="b0a-GT-Kc8"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="INh-xw-v2a" secondAttribute="bottom" constant="5" id="yxw-gq-Ehz"/>
+                <constraint firstItem="gQL-vG-1rG" firstAttribute="top" secondItem="q4X-g7-cke" secondAttribute="bottom" constant="10" id="bys-hO-VLR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="udc-Fn-GHV" secondAttribute="bottom" constant="8.5" id="f0U-tA-qJZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="udc-Fn-GHV" secondAttribute="trailing" constant="10" id="pDw-Hf-d7E"/>
+                <constraint firstItem="udc-Fn-GHV" firstAttribute="top" secondItem="gQL-vG-1rG" secondAttribute="bottom" constant="10" id="w5n-3q-TuW"/>
                 <constraint firstItem="q4X-g7-cke" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="z9o-6x-Kgi"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vvX-67-nqP" secondAttribute="trailing" constant="10" id="znK-q8-aCf"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="btnDismiss" destination="INh-xw-v2a" id="DiR-7u-Ui7"/>
                 <outlet property="lblLocation" destination="gQL-vG-1rG" id="WF3-L4-XMt"/>
+                <outlet property="lblNotes" destination="udc-Fn-GHV" id="UeO-D6-yCR"/>
                 <outlet property="lblUserName" destination="q4X-g7-cke" id="fHE-5i-ShT"/>
-                <outlet property="txtVwNote" destination="vvX-67-nqP" id="YfD-My-yuv"/>
             </connections>
-            <point key="canvasLocation" x="-320" y="-80"/>
+            <point key="canvasLocation" x="-320.28985507246381" y="-134.93303571428569"/>
         </view>
     </objects>
 </document>

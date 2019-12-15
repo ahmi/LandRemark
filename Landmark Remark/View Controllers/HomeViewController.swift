@@ -15,7 +15,7 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapViewNotes: MKMapView!
-    private var locationManager : CLLocationManager? = nil
+    private var locationManager = CLLocationManager()
     // data
     var initialDataLoaded = false
     var selectedNote: DBNote?
@@ -32,17 +32,24 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
     }
     // MARK:- Setup UI and Data
     func setUpLocationManager(){
-        self.locationManager = CLLocationManager()
-        self.locationManager?.delegate = self
-        self.locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager?.requestWhenInUseAuthorization()
-        self.locationManager?.startUpdatingLocation()
+        
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+                       self.mapViewNotes.showsUserLocation = true
+                   } else {
+            self.locationManager.requestWhenInUseAuthorization()
+                   }
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.startUpdatingLocation()
         self.mapViewNotes.showsUserLocation = true
         self.mapViewNotes.delegate = self
+        self.searchBar.delegate = self
     }
+    
     func getAllNotes(){
         self.notesArray = [DBNote]()
         //retrieve the notes and listen for changes
+        
         self.notesRef.observeSingleEvent(of: .value) { [weak self] (snapShot) in
             guard let strongSelf = self else { return }
             if !snapShot.exists() { return }
@@ -73,10 +80,8 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
             } else {
                 // we are ignoring this child since it is pre-existing data
             }
-            
         }
     }
-    
     
     func configureNotesInMap() {
         var annotations = [MKAnnotation]()
@@ -88,10 +93,19 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
         self.mapViewNotes.addAnnotations(annotations)
         mapViewNotes.showAnnotations(annotations, animated: true)
     }
-    
+    // MARK: - location
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            mapViewNotes.showsUserLocation = true
+        }
+    }
     // MARK: Search bar delegates
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+    }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.endEditing(true)
+        self.searchBar.resignFirstResponder()
         print ("search bar text : %@", self.searchBar.text!)
     }
     // MARK: Filter Notes
@@ -108,25 +122,18 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation { return nil }
-        
+        //Reuse annotation view just like tableview
         var annotationView = mapViewNotes.dequeueReusableAnnotationView(withIdentifier: Constants.Storyboard.kNoteAnnotationName)
         
         if annotationView == nil {
             annotationView = NotesAnnotationView(annotation: annotation, reuseIdentifier: Constants.Storyboard.kNoteAnnotationName)
-            // (annotationView as! NotesAnnotationView).noteDetailDelegate = self
         } else {
             annotationView!.annotation = annotation
         }
-        
         return annotationView
-        
     }
     
     // MARK: - Button Actions
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
     
     func logouotAndTranisitionToInitialScreen()  {
         //logout user
@@ -142,15 +149,16 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
         view.window?.rootViewController = initialVC
         view.window?.makeKeyAndVisible()
     }
-    
+    //present nav controller to create a note
+    //pass location data to create note screen to use in creating note
     func createNoteAtCurrentLocation() {
         guard let createNoteVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.createNoteViewController) as? UINavigationController else {return}
         self.navigationController?.present(createNoteVC, animated: true, completion: nil)
-        
     }
     @IBAction func btnLogout_tapped(_ sender: Any) {
         self.createNoteAtCurrentLocation()
         return
+        //create confirmation alert 
         let alert = UIAlertController(title: "Confirm Logout?", message: "This will log you out", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Logout", style: .default, handler: { action in
@@ -171,5 +179,4 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
         // show the alert
         self.present(alert, animated: true, completion: nil)
     }
-    
 }

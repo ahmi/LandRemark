@@ -138,7 +138,7 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="lDQ-dS-Gcs" id="l0V-Cz-aTc"/>
+                                    <outlet property="delegate" destination="lDQ-dS-Gcs" id="xGg-FC-Tbm"/>
                                 </connections>
                             </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cku-0G-2Uh">

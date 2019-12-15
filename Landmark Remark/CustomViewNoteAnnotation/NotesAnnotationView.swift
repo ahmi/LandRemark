@@ -46,7 +46,8 @@ class NotesAnnotationView: MKAnnotationView {
                 customCalloutView?.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.activate([
                     customCalloutView!.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-                    customCalloutView!.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: self.calloutOffset.x)
+                    customCalloutView!.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: self.calloutOffset.x),
+                    customCalloutView!.widthAnchor.constraint(equalToConstant: 200)
                 ])
                 
                 // animate presentation
@@ -71,11 +72,13 @@ class NotesAnnotationView: MKAnnotationView {
     }
     func loadNoteDetailMapView() -> NoteDetailMapView? {
          if let views = Bundle.main.loadNibNamed("NoteDetailMapView", owner: self, options: nil) as? [NoteDetailMapView], views.count > 0 {
-             let noteDetailMapView = views.first!
+            let noteDetailMapView = views.first!
+            noteDetailMapView.layer.cornerRadius = 5
+            noteDetailMapView.layer.masksToBounds = true
             // personDetailMapView.delegate = self.personDetailDelegate
              if let noteAnnotation = annotation as? NoteAnnotation {
                  let note = noteAnnotation.note
-                 noteDetailMapView.configureWithPerson(currentNote: note)
+                 noteDetailMapView.configureWithNote(currentNote: note)
              }
              return noteDetailMapView
          }

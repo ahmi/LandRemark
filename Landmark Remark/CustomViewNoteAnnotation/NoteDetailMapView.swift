@@ -8,32 +8,27 @@
 
 import UIKit
 protocol noteMapViewDelegate: class {
+    //Can be implemented if required, in case functionality needs to be implemented on notes
     func detailsRequestedForNote(note: DBNote)
 }
 class NoteDetailMapView: UIView {
     
-    @IBOutlet weak var lblUserName: UILabel!
-    @IBOutlet weak var lblLocation: UILabel!
-    @IBOutlet weak var txtVwNote: UITextView!
-    @IBOutlet weak var btnDismiss: UIButton!
-    var note: DBNote!
-    weak var delegate: noteMapViewDelegate?
-    @IBAction func btnDismiss_tapped(_ sender: Any) {
-    }
-    //Calling this method just before displaying callout view
-    func configureWithPerson(currentNote: DBNote) {
-        self.note = currentNote
-        self.lblUserName.text = note.addedByUser
-        self.lblLocation.text = note.location
-        self.lblLocation.numberOfLines = 2
-        self.txtVwNote.text = note.note_text
-        self.txtVwNote.isEditable = false
-    }
-    //Add arrow direction to
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // appearance
-      //  self.btnDismiss.applyArrowDialogAppearanceWithOrientation(arrowOrientation: .down)
-    }
+   @IBOutlet weak var lblUserName: UILabel!
+       @IBOutlet weak var lblLocation: UILabel!
+       @IBOutlet weak var lblNotes: UILabel!
+       var note: DBNote!
+       weak var delegate: noteMapViewDelegate?
+       //Calling this method just before displaying callout view
+       func configureWithNote(currentNote: DBNote) {
+           self.note = currentNote
+           self.lblUserName.text = note.addedByUser
+           self.lblLocation.text = note.location
+           self.lblNotes.text = note.note_text
+           
+       }
+       override func awakeFromNib() {
+           super.awakeFromNib()
+           self.lblLocation.numberOfLines = 2
+       }
     
 }
