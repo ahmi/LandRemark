@@ -14,6 +14,7 @@ class CreateNoteViewController: UIViewController,UITextViewDelegate {
     //Default switch value/is_public parameter
     var isNotePublic = true
     var current_location:CLLocation = CLLocation()
+    var location_string:String = ""
     //Reference to notes directory at cloud
     let notesRef = Database.database().reference(withPath: "notes") //URL to notes table in db
     @IBOutlet weak var txtView_noteText: UITextView!
@@ -21,7 +22,33 @@ class CreateNoteViewController: UIViewController,UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setAppearance()
+        setAppearance()
+        createLocationString()
+    }
+    func createLocationString() {
+        //https://medium.com/@calmone/ios-mapkit-in-swift-4-reverse-geocoding-7fb9e41e8acd
+        let myGeocorder = CLGeocoder()
+        
+        myGeocorder.reverseGeocodeLocation(self.current_location, completionHandler: { (placemarks, error) -> Void in
+            if error != nil{
+                self.location_string = "Anonymous"
+            }
+                 for placemark in placemarks! {
+//
+//                     print("Name: \(placemark.name ?? "Empty")")
+//                     print("Country: \(placemark.country ?? "Empty")")
+//                     print("ISOcountryCode: \(placemark.isoCountryCode ?? "Empty")")
+//                     print("administrativeArea: \(placemark.administrativeArea ?? "Empty")")
+//                     print("subAdministrativeArea: \(placemark.subAdministrativeArea ?? "Empty")")
+//                     print("Locality: \(placemark.locality ?? "Empty")")
+//                     print("PostalCode: \(placemark.postalCode ?? "Empty")")
+//                     print("areaOfInterest: \(placemark.areasOfInterest ?? ["Empty"])")
+//                     print("Ocean: \(placemark.ocean ?? "Empty")")
+                     
+                     // save address to string we are going to use.
+                    self.location_string = (placemark.name ?? "") + ", " + (placemark.country ?? " ")
+                 }
+             })
     }
     //MARK:- Textview appearance and delegates
     func setAppearance()  {
@@ -42,6 +69,7 @@ class CreateNoteViewController: UIViewController,UITextViewDelegate {
             }
         }
     }
+    //https://stackoverflow.com/questions/27652227/text-view-uitextview-placeholder-swift
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
 
         // Combine the textView text and the replacement text to
@@ -85,21 +113,21 @@ class CreateNoteViewController: UIViewController,UITextViewDelegate {
             showNoteCreated(title: "Error", message: "Please Enter Valid Text..")
             return
         }
+        let lat = self.current_location.coordinate.latitude
+        let lon = self.current_location.coordinate.longitude
         let user = Auth.auth().currentUser!
          self.view.activityStartAnimating(activityColor: UIColor.white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
-        self.notesRef.childByAutoId().setValue(["note_text":self.txtView_noteText.text ?? "This note text is placeholder in case of textview failure","addedByUser":user.displayName ?? "Anonymous user", "location":"test location", "uid": user.uid,"is_public":isNotePublic,"lat": -33.884921, "lon":151.215827 ]) {  (error, dbreference)  in
+        self.notesRef.childByAutoId().setValue(["note_text":self.txtView_noteText.text ?? "This note text is placeholder in case of textview failure","addedByUser":user.displayName ?? "Anonymous user", "location":"test location", "uid": user.uid,"is_public":isNotePublic,"lat":lat , "lon":lon ]) {  (error, dbreference)  in
             self.view.activityStopAnimating()
             if error != nil
             {
                 self.showNoteCreated(title: "Error", message: "There was a problem in creating your note. Please try later")
-                
             }
             else{
                //handle success response here
                 //Fire a notification OR listen to change in db
                 //Dismiss controller
                  self.showNoteCreated(title: "Success", message: "Your note has been created!")
-                
             }
         }
     }
@@ -114,10 +142,7 @@ class CreateNoteViewController: UIViewController,UITextViewDelegate {
     }
 //MARK:- HElper methods
     func validateForm() -> Bool {
-        if self.current_location != nil {
-            return true
-        }
-        
+
         let text = self.txtView_noteText.text.trimmingCharacters(in: .whitespacesAndNewlines)
         if text.count > 0 {
             return true
@@ -134,4 +159,26 @@ class CreateNoteViewController: UIViewController,UITextViewDelegate {
         self.present(alertController, animated: true, completion:nil)
     }
     
+    //MARK:- Location Function
+    
+         func getPlace(for location: CLLocation,
+                   completion: @escaping (CLPlacemark?) -> Void) {
+         
+         let geocoder = CLGeocoder()
+         geocoder.reverseGeocodeLocation(location) { placemarks, error in
+             
+             guard error == nil else {
+                 print("*** Error in \(#function): \(error!.localizedDescription)")
+                 completion(nil)
+                 return
+             }
+             guard let placemark = placemarks?[0] else {
+                 print("*** Error in \(#function): placemark is nil")
+                 completion(nil)
+                 return
+             }
+        print("\(placemark)")
+             completion(placemark)
+         }
+     }
 }

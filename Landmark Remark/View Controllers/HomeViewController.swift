@@ -31,6 +31,10 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
         self.setUpLocationManager()
         self.getAllNotes()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
     // MARK:- Setup Componenets
     func setUpLocationManager(){
         
@@ -87,7 +91,6 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
             }
         }
     }
-    
     func configureAllNotesInMap() {
         //hide activity indicator
         self.view.activityStopAnimating()

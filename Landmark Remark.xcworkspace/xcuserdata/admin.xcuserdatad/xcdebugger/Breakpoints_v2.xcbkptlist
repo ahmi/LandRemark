@@ -30,8 +30,8 @@
             filePath = "Landmark Remark/View Controllers/CreateNoteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "btnSaveNote_tapped(_:)"
             landmarkType = "7">
             <Locations>
@@ -46,9 +46,9 @@
                   urlString = "file:///Users/admin/Desktop/My%20Data%202019/Dev%20Projects/Xcode%20Projects/Landmark%20Remark/Landmark%20Remark/View%20Controllers/CreateNoteViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "1035">
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "1590">
                </Location>
                <Location
                   uuid = "71E07500-25C1-4EDA-8EF2-2F3FB6C4DACF - 775b5831f742ead6"
@@ -61,8 +61,8 @@
                   urlString = "file:///Users/admin/Desktop/My%20Data%202019/Dev%20Projects/Xcode%20Projects/Landmark%20Remark/Landmark%20Remark/View%20Controllers/CreateNoteViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
                   offsetFromSymbolStart = "118">
                </Location>
             </Locations>
@@ -78,8 +78,8 @@
             filePath = "Landmark Remark/View Controllers/CreateNoteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "btnSaveNote_tapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,41 +94,9 @@
             filePath = "Landmark Remark/View Controllers/CreateNoteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "btnSaveNote_tapped(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "84F99838-BB6E-40CF-B626-4B1BA36A523E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Landmark Remark/View Controllers/CreateNoteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "setAppearance()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "869ED1A9-AA18-4853-A3BE-7CC4BA526C77"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Landmark Remark/View Controllers/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
-            landmarkName = "createNoteAtCurrentLocation()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -142,9 +110,137 @@
             filePath = "Landmark Remark/View Controllers/CreateNoteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "validateForm()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "59752383-8A3F-4D06-9484-826D2291D3BD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Landmark Remark/View Controllers/CreateNoteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "getPlace(for:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "61CA84F9-20E6-4DB9-A566-E79C431FC993"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Landmark Remark/View Controllers/CreateNoteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "createLocationString()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "61CA84F9-20E6-4DB9-A566-E79C431FC993 - 869b4c8221cae4ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Landmark_Remark.CreateNoteViewController.createLocationString() -&gt; ()"
+                  moduleName = "Landmark Remark"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Desktop/My%20Data%202019/Dev%20Projects/Xcode%20Projects/Landmark%20Remark/Landmark%20Remark/View%20Controllers/CreateNoteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "54">
+               </Location>
+               <Location
+                  uuid = "61CA84F9-20E6-4DB9-A566-E79C431FC993 - 7fd42fa000a422d3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;__C.CLPlacemark&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Landmark_Remark.CreateNoteViewController.createLocationString() -&gt; ()"
+                  moduleName = "Landmark Remark"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Desktop/My%20Data%202019/Dev%20Projects/Xcode%20Projects/Landmark%20Remark/Landmark%20Remark/View%20Controllers/CreateNoteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "202">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB87B14A-0EF8-4224-8B0F-49B5D5BC522F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Landmark Remark/View Controllers/CreateNoteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "getPlace(for:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "35ECBFF8-393B-4170-A17F-3AF26F4CEB51"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Landmark Remark/View Controllers/CreateNoteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "createLocationString()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AA1B55D1-5F71-4053-9EA7-A568A3E6CCF5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Landmark Remark/View Controllers/CreateNoteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "createLocationString()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "691735D0-2C24-4D31-85C1-3BDB6FDC1FC7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Landmark Remark/View Controllers/CreateNoteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "createLocationString()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
