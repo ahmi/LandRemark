@@ -94,9 +94,10 @@ class SignupViewController: UIViewController {
                 
                 if result != nil
                 {
-                    self.ref!.child("users").child(result!.user.uid).setValue(["firstname":firstName,"lastname":lastNAme,"displayName":firstName + " " + lastNAme ,"email":self.tfEmail.text!, "uid": result!.user.uid]) {  (error, dbreference)  in
-                        if error != nil
-                        {
+                    let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                    changeRequest?.displayName = firstName + " " + lastNAme
+                    changeRequest?.commitChanges { (error) in
+                        if error != nil {
                             //there is something wrong with creating data in user
                             self.lblError.text = error!.localizedDescription
                         }
@@ -104,7 +105,7 @@ class SignupViewController: UIViewController {
                             self.loginWithCredentials()
                         }
                     }
-                } else
+                }else
                 {
                     self.lblError.text = error?.localizedDescription
                 }
@@ -114,6 +115,8 @@ class SignupViewController: UIViewController {
     }
     
     func loginWithCredentials()  {
+        
+        print("Display name:\(Auth.auth().currentUser?.displayName)")
         Auth.auth().signIn(withEmail: self.tfEmail.text!,
                            password: self.tfPassword.text!){(result, Error) in
                             if result != nil{
@@ -125,18 +128,6 @@ class SignupViewController: UIViewController {
         }
     }
     func transitionToHomeVC()  {
-        
-        //set current user
-        let user = Auth.auth().currentUser;
-        var nam:String
-        var email:String
-        var uid:String
-
-        if (user != nil) {
-            nam = user?.displayName ?? "";
-            email = user?.email ?? "";
-            uid = user?.uid ?? "";
-        }
         let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? UINavigationController
         view.window?.rootViewController = homeVC
         view.window?.makeKeyAndVisible()

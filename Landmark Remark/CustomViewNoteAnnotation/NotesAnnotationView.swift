@@ -5,7 +5,6 @@
 //  Created by Ahmad Waqas on 6/12/19.
 //  Copyright © 2019 Ahmad Waqas. All rights reserved.
 //
-
 import UIKit
 import MapKit
 private let knoteMapPinImage = UIImage(named: "mapPin")!
@@ -41,14 +40,15 @@ class NotesAnnotationView: MKAnnotationView {
             self.customCalloutView?.removeFromSuperview() // remove old custom callout (if any)
             
             if let newCustomCalloutView = loadNoteDetailMapView() {
-                // fix location from top-left to its right place.
-                newCustomCalloutView.frame.origin.x -= newCustomCalloutView.frame.width / 2.0 - (self.frame.width / 2.0)
-                newCustomCalloutView.frame.origin.y -= newCustomCalloutView.frame.height
-                
                 // set custom callout view
                 self.addSubview(newCustomCalloutView)
                 self.customCalloutView = newCustomCalloutView
-            
+                customCalloutView?.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    customCalloutView!.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+                    customCalloutView!.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: self.calloutOffset.x)
+                ])
+                
                 // animate presentation
                 if animated {
                     self.customCalloutView!.alpha = 0.0

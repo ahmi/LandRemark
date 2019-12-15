@@ -32,7 +32,6 @@
 		84C3A19623A3E54B00B7D638 /* NoteDetailMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C3A19223A3E54B00B7D638 /* NoteDetailMapView.xib */; };
 		84C3A19723A3E54B00B7D638 /* NoteDetailMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3A19323A3E54B00B7D638 /* NoteDetailMapView.swift */; };
 		84C3A19823A3E54B00B7D638 /* NoteAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3A19423A3E54B00B7D638 /* NoteAnnotation.swift */; };
-		84C3A19A23A4C74F00B7D638 /* NotesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3A19923A4C74F00B7D638 /* NotesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +84,6 @@
 		84C3A19223A3E54B00B7D638 /* NoteDetailMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteDetailMapView.xib; sourceTree = "<group>"; };
 		84C3A19323A3E54B00B7D638 /* NoteDetailMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailMapView.swift; sourceTree = "<group>"; };
 		84C3A19423A3E54B00B7D638 /* NoteAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteAnnotation.swift; sourceTree = "<group>"; };
-		84C3A19923A4C74F00B7D638 /* NotesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesManager.swift; sourceTree = "<group>"; };
 		A671BA5E61B2C30655F42C4C /* Pods_Landmark_Remark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Landmark_Remark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CCCFD010884838D5D0933B /* Pods-Landmark Remark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Landmark Remark.release.xcconfig"; path = "Target Support Files/Pods-Landmark Remark/Pods-Landmark Remark.release.xcconfig"; sourceTree = "<group>"; };
 		CFFE6D5F5303B551E51ABFC1 /* Pods-Landmark RemarkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Landmark RemarkTests.release.xcconfig"; path = "Target Support Files/Pods-Landmark RemarkTests/Pods-Landmark RemarkTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 				84C3A19223A3E54B00B7D638 /* NoteDetailMapView.xib */,
 				84C3A19323A3E54B00B7D638 /* NoteDetailMapView.swift */,
 				84C3A19423A3E54B00B7D638 /* NoteAnnotation.swift */,
-				84C3A19923A4C74F00B7D638 /* NotesManager.swift */,
 			);
 			path = CustomViewNoteAnnotation;
 			sourceTree = "<group>";
@@ -472,7 +469,6 @@
 				84C3A19723A3E54B00B7D638 /* NoteDetailMapView.swift in Sources */,
 				848E8BEB23A01745009082BB /* LoginViewController.swift in Sources */,
 				848E8BED23A01755009082BB /* SignupViewController.swift in Sources */,
-				84C3A19A23A4C74F00B7D638 /* NotesManager.swift in Sources */,
 				84C3A18223A02BA900B7D638 /* InitialViewController.swift in Sources */,
 				84C3A18923A3D86000B7D638 /* DBUser.swift in Sources */,
 				848E8BBB23A01727009082BB /* AppDelegate.swift in Sources */,

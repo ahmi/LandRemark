@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Initial View Controller-->
+        <!--Welcome-->
         <scene sceneID="nbU-RR-A8H">
             <objects>
                 <viewController id="vgI-6c-7Jb" customClass="InitialViewController" customModule="Landmark_Remark" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,7 +49,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ldN-j2-qRd"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qUg-Z2-TMj"/>
+                    <navigationItem key="navigationItem" title="Welcome" id="qUg-Z2-TMj"/>
                     <connections>
                         <outlet property="btnLogin" destination="WZt-VE-Ziv" id="0yg-hs-Fp1"/>
                         <outlet property="btnSignup" destination="mmF-GF-u4t" id="ych-1W-k4d"/>
@@ -59,7 +59,7 @@
             </objects>
             <point key="canvasLocation" x="1834.7826086956522" y="101.78571428571428"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="H5Y-8h-cc8">
             <objects>
                 <viewController id="zP0-0I-kTq" customClass="LoginViewController" customModule="Landmark_Remark" customModuleProvider="target" sceneMemberID="viewController">
@@ -111,7 +111,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="das-Lk-gok"/>
                     </view>
-                    <navigationItem key="navigationItem" id="I2c-JH-a6v"/>
+                    <navigationItem key="navigationItem" title="Login" id="I2c-JH-a6v"/>
                     <connections>
                         <outlet property="btnSignin" destination="E2J-S6-RCG" id="rBC-s5-1zB"/>
                         <outlet property="lblError" destination="QlM-xe-hfV" id="CFA-9a-xeG"/>
@@ -161,7 +161,7 @@
                         <viewLayoutGuide key="safeArea" id="eni-qO-cd3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="lYM-db-hDV">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="EEE-9k-hDb">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="EEE-9k-hDb">
                             <connections>
                                 <action selector="btnLogout_tapped:" destination="lDQ-dS-Gcs" id="b4Y-tz-ULy"/>
                             </connections>
@@ -242,7 +242,7 @@
             </objects>
             <point key="canvasLocation" x="5231.884057971015" y="1002.4553571428571"/>
         </scene>
-        <!--Signup View Controller-->
+        <!--Create Account-->
         <scene sceneID="ZDt-UV-kwA">
             <objects>
                 <viewController id="iP9-Jd-EvN" customClass="SignupViewController" customModule="Landmark_Remark" customModuleProvider="target" sceneMemberID="viewController">
@@ -312,7 +312,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OSE-eD-O20"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pOw-YL-mmt"/>
+                    <navigationItem key="navigationItem" title="Create Account" id="pOw-YL-mmt"/>
                     <connections>
                         <outlet property="btnSignup" destination="s03-tB-4gO" id="8NI-X1-bXw"/>
                         <outlet property="lblError" destination="Gui-FA-sOI" id="gDA-z2-RzE"/>
