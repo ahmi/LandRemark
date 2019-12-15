@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseAuth
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var lblError: UILabel!
     @IBOutlet weak var btnSignin: UIButton!
@@ -28,10 +28,9 @@ class LoginViewController: UIViewController {
         Utilities.styleTextField(tfPassword)
         Utilities.styleTextField(tfUserName)
         //style button
-        Utilities.styleFilledButton(btnSignin)
-        
+        Utilities.styleFilledButton(btnSignin) 
     }
-    //MARL:- Button action
+    //MARK:- Button action
     @IBAction func btnSignIn_tapped(_ sender: Any) {
         let error = validateForm()
         if error != nil {
@@ -41,7 +40,10 @@ class LoginViewController: UIViewController {
             //Create clean strings from textfields for creating user in database
             let emailString = tfUserName.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = tfPassword.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            //show activity indicator
+            self.view.activityStartAnimating(activityColor: UIColor.white, backgroundColor: UIColor.darkGray.withAlphaComponent(0.5))
             Auth.auth().signIn(withEmail: emailString, password: password) { (result, error) in
+                self.view.activityStopAnimating()
                 if error != nil  {
                     self.lblError.text = error?.localizedDescription
                 } else {
@@ -72,5 +74,9 @@ class LoginViewController: UIViewController {
         let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? UINavigationController
         view.window?.rootViewController = homeVC
         view.window?.makeKeyAndVisible()
+    }
+    //MARK: - Textfield delegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }

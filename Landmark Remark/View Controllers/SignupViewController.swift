@@ -27,6 +27,7 @@ class SignupViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    //MARK:- Helper functions
     func setupUIElements() {
         //Hide error label
         lblError.alpha = 0
@@ -73,6 +74,7 @@ class SignupViewController: UIViewController {
     }
     
     func showErrorMessage(err: String) {
+        self.view.activityStopAnimating()
         lblError.text = err
         lblError.alpha = 1
     }
@@ -81,6 +83,7 @@ class SignupViewController: UIViewController {
     @IBAction func btnSignup_tapped(_ sender: Any) {
         let error = validateForm()
         //self.createUserWithRealTimeDB()
+        self.view.activityStartAnimating(activityColor: UIColor.white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
         if error != nil {
             //There is something wrong with input
             showErrorMessage(err: error!)
@@ -91,7 +94,6 @@ class SignupViewController: UIViewController {
             let lastNAme = tfLastName.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             //Call Firebase Create  user method to create a user account
             Auth.auth().createUser(withEmail: emailString, password: tfPassword.text!) { (result, error) in
-                
                 if result != nil
                 {
                     let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
@@ -113,12 +115,11 @@ class SignupViewController: UIViewController {
             }
         }
     }
-    
+    //Login user after signing up
     func loginWithCredentials()  {
-        
-        print("Display name:\(Auth.auth().currentUser?.displayName)")
         Auth.auth().signIn(withEmail: self.tfEmail.text!,
                            password: self.tfPassword.text!){(result, Error) in
+                            self.view.activityStopAnimating()
                             if result != nil{
                                 
                                 self.transitionToHomeVC()
@@ -127,10 +128,14 @@ class SignupViewController: UIViewController {
                             }
         }
     }
+    //Set home VC as root controller unless user logs out
     func transitionToHomeVC()  {
         let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? UINavigationController
         view.window?.rootViewController = homeVC
         view.window?.makeKeyAndVisible()
     }
-    
+    //MARK: - Textfield delegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
 }

@@ -58,5 +58,10 @@ class Utilities {
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: emailStr)
     }
+    //https://stackoverflow.com/questions/38144019/how-to-create-uialertcontroller-in-global-swift
+    static func showAlertMessage(vc: UIViewController, titleStr:String, messageStr:String) -> Void {
+        let alert = UIAlertController(title: titleStr, message: messageStr, preferredStyle: UIAlertController.Style.alert);
+        vc.present(alert, animated: true, completion: nil)
+    }
     
 }

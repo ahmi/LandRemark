@@ -18,11 +18,11 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
     private var locationManager = CLLocationManager()
     // data
     var initialDataLoaded = false
-    var selectedNote: DBNote?
     var notesArray: [DBNote]  = []
-    let notesRef = Database.database().reference(withPath: "notes")
-    let usersRef = Database.database().reference(withPath: "users")
+    let notesRef = Database.database().reference(withPath: "notes") // URL to notes in db
     var databaseHandle:DatabaseHandle?
+    var notesFilteredArray: [DBNote]  = []
+    var isShowingFilteredNotes = false
     
     
     override func viewDidLoad() {
@@ -30,23 +30,27 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
         self.setUpLocationManager()
         self.getAllNotes()
     }
-    // MARK:- Setup UI and Data
+    // MARK:- Setup Componenets
     func setUpLocationManager(){
         
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-                       self.mapViewNotes.showsUserLocation = true
-                   } else {
+            self.mapViewNotes.showsUserLocation = true
+        } else {
             self.locationManager.requestWhenInUseAuthorization()
-                   }
+        }
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation()
         self.mapViewNotes.showsUserLocation = true
         self.mapViewNotes.delegate = self
         self.searchBar.delegate = self
+        if let coor = self.mapViewNotes.userLocation.location?.coordinate{
+            self.mapViewNotes.setCenter(coor, animated: true)
+        }
     }
     
     func getAllNotes(){
+        self.view.activityStartAnimating(activityColor: UIColor.white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
         self.notesArray = [DBNote]()
         //retrieve the notes and listen for changes
         
@@ -64,7 +68,7 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
                 }
             }
             if strongSelf.notesArray.count > 0 {
-                strongSelf.configureNotesInMap()
+                strongSelf.configureAllNotesInMap()
             }
             strongSelf.initialDataLoaded = true
         }
@@ -75,7 +79,7 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
                 //take a values from notes and add into custom notes annotation arrays
                 if let note = DBNote.init(snapshot: snapshot) {
                     strongSelf.notesArray.append(note)
-                    strongSelf.configureNotesInMap()
+                    strongSelf.configureAllNotesInMap()
                 }
             } else {
                 // we are ignoring this child since it is pre-existing data
@@ -83,9 +87,19 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
         }
     }
     
-    func configureNotesInMap() {
+    func configureAllNotesInMap() {
+        //hide activity indicator
+        self.view.activityStopAnimating()
+        //Check if filtering then show filtered notes
+        //otherwise show all notes
+        var notesToShow = [DBNote]()
+        if isShowingFilteredNotes{
+            notesToShow = self.notesFilteredArray
+        }else{
+            notesToShow = self.notesArray
+        }
         var annotations = [MKAnnotation]()
-        for note in self.notesArray {
+        for note in notesToShow {
             let annotation = NoteAnnotation(currentNote: note)
             annotations.append(annotation)
         }
@@ -93,30 +107,11 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
         self.mapViewNotes.addAnnotations(annotations)
         mapViewNotes.showAnnotations(annotations, animated: true)
     }
-    // MARK: - location
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse {
-            mapViewNotes.showsUserLocation = true
-        }
-    }
-    // MARK: Search bar delegates
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        self.searchBar.resignFirstResponder()
-    }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchBar.endEditing(true)
-        self.searchBar.resignFirstResponder()
-        print ("search bar text : %@", self.searchBar.text!)
-    }
-    // MARK: Filter Notes
-    func filterNotesWithString(filterString: String!) -> [DBNote]? {
-        
-        return nil
-    }
+    
     // MARK: - MKMapViewDelegate methods
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        //  let visibleRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
-        let visibleRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 47.57983, longitude: -52.68997), latitudinalMeters: 10000, longitudinalMeters: 10000)
+        //Zoom to 1000 meters of user's current location
+        let visibleRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
         self.mapViewNotes.setRegion(self.mapViewNotes.regionThatFits(visibleRegion), animated: true)
     }
     
@@ -133,6 +128,65 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
         return annotationView
     }
     
+    // MARK: - location manager
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            mapViewNotes.showsUserLocation = true
+        }
+    }
+    //Called everytime user's location is updated
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        self.mapViewNotes.mapType = MKMapType.standard
+        //Zoom to 1000 meters of user's current location
+        let visibleRegion = MKCoordinateRegion(center: locValue, latitudinalMeters: 10000, longitudinalMeters: 10000)
+        self.mapViewNotes.setRegion(self.mapViewNotes.regionThatFits(visibleRegion), animated: true)
+    }
+    // MARK: Search bar delegates & filter functionality
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = false
+        self.searchBar.resignFirstResponder()
+    }
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.isShowingFilteredNotes = false
+        self.searchBar.resignFirstResponder()
+        self.configureAllNotesInMap()
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+        self.searchBar.resignFirstResponder()
+       // print ("search bar text : %@", self.searchBar.text!)
+        let searchString = searchBar.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        if (searchString.count > 0){
+            self.searchNoteWithText(searchterm: searchString)
+        } else {
+            Utilities.showAlertMessage(vc: self, titleStr: "Error", messageStr: "Invalid search")
+        }
+    }
+    // MARK: - search
+    func searchNoteWithText(searchterm: String) {
+        //re-initalise filtered notes array
+        self.notesFilteredArray = [DBNote]()
+        notesFilteredArray = self.notesArray.filter { (note) -> Bool in
+            //case insensitive search query
+            if note.addedByUser.localizedCaseInsensitiveContains(searchterm) || note.note_text.localizedCaseInsensitiveContains(searchterm) {
+                return true
+            }
+            return false
+        }
+        //check if filtered array has notes reload map annotation
+        if (self.notesFilteredArray.count > 0){
+            self.isShowingFilteredNotes  = true
+            self.configureAllNotesInMap()
+        }
+    }
+    // MARK: Filter Notes
+    func filterNotesWithString(filterString: String!) -> [DBNote]? {
+        return nil
+    }
     // MARK: - Button Actions
     
     func logouotAndTranisitionToInitialScreen()  {
@@ -142,12 +196,19 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
             try firebaseAuth.signOut()
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
-            
         }
         //set initial screen as root view controller, purge login, signup, home screens from memory
         let initialVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.initialViewController) as? UINavigationController
         view.window?.rootViewController = initialVC
         view.window?.makeKeyAndVisible()
+    }
+    
+    @IBAction func btnCreateNote_tapped(_ sender: Any) {
+        //check if we have current location instance,
+        //because it is required to create a note
+       // if self.mapViewNotes.userLocation.location{
+            self.createNoteAtCurrentLocation()
+        //}
     }
     //present nav controller to create a note
     //pass location data to create note screen to use in creating note
@@ -156,8 +217,6 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
         self.navigationController?.present(createNoteVC, animated: true, completion: nil)
     }
     @IBAction func btnLogout_tapped(_ sender: Any) {
-        self.createNoteAtCurrentLocation()
-        return
         //create confirmation alert 
         let alert = UIAlertController(title: "Confirm Logout?", message: "This will log you out", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -165,17 +224,13 @@ class HomeViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDe
             switch action.style{
                 case .default:
                     self.logouotAndTranisitionToInitialScreen()
-                
                 case .cancel:
                     print("cancel")
-                
-                
                 case .destructive:
                     print("destructive")
                 @unknown default:
                     print("unknown default")
             }}))
-        
         // show the alert
         self.present(alert, animated: true, completion: nil)
     }

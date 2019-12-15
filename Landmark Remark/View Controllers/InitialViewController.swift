@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import FirebaseDatabase
+import FirebaseAuth
 class InitialViewController: UIViewController {
     
     @IBOutlet weak var btnLogin: UIButton!
@@ -15,24 +16,21 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUIElements()
-        // Do any additional setup after loading the view.
+        guard let user = Auth.auth().currentUser else {return}
+        self.transitionToHomeVC()
     }
+    
+    //Set home VC as root controller unless user logs out
+    func transitionToHomeVC()  {
+        let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? UINavigationController
+        view.window?.rootViewController = homeVC
+        view.window?.makeKeyAndVisible()
+    }
+    
     func setupUIElements() {
-        
         //style button
         Utilities.styleFilledButton(btnSignup)
         Utilities.styleHollowButton(btnLogin)
-        
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

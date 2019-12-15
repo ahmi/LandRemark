@@ -131,12 +131,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="nTp-Wp-eni">
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="nTp-Wp-eni">
                                 <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="px2-xi-TdP"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 <connections>
                                     <outlet property="delegate" destination="lDQ-dS-Gcs" id="xGg-FC-Tbm"/>
                                 </connections>
@@ -161,9 +161,14 @@
                         <viewLayoutGuide key="safeArea" id="eni-qO-cd3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="lYM-db-hDV">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="EEE-9k-hDb">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="EEE-9k-hDb">
                             <connections>
                                 <action selector="btnLogout_tapped:" destination="lDQ-dS-Gcs" id="b4Y-tz-ULy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Create Note" id="xPc-nS-srW">
+                            <connections>
+                                <action selector="btnCreateNote_tapped:" destination="lDQ-dS-Gcs" id="UdW-C4-dDo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -184,8 +189,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose if other users can see " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnD-qJ-Unk">
-                                <rect key="frame" x="20" y="108" width="261" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select if other users can see it ?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnD-qJ-Unk">
+                                <rect key="frame" x="20" y="108" width="273.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -202,7 +207,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="qaK-BU-5Gg"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor </string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
