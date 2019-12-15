@@ -16,7 +16,9 @@ struct Constants {
         
         static let homeViewController = "HomeVC"
         static let initialViewController = "InitialVC"
+        static let createNoteViewController = "createnoteVC"
         static let kNoteAnnotationName = "kNoteAnnotationName"
+        
         
     }
     

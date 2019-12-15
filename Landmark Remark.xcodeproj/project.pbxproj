@@ -20,6 +20,7 @@
 		848E8BEB23A01745009082BB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E8BEA23A01745009082BB /* LoginViewController.swift */; };
 		848E8BED23A01755009082BB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E8BEC23A01755009082BB /* SignupViewController.swift */; };
 		848E8BEF23A01761009082BB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E8BEE23A01761009082BB /* HomeViewController.swift */; };
+		8492DE4E23A61E9A004F47FF /* CreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492DE4D23A61E9A004F47FF /* CreateNoteViewController.swift */; };
 		84C3A18223A02BA900B7D638 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3A18123A02BA900B7D638 /* InitialViewController.swift */; };
 		84C3A18423A035E100B7D638 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C3A18323A035E100B7D638 /* GoogleService-Info.plist */; };
 		84C3A18623A0363200B7D638 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 84C3A18523A0363200B7D638 /* Podfile */; };
@@ -72,6 +73,7 @@
 		848E8BEA23A01745009082BB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		848E8BEC23A01755009082BB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		848E8BEE23A01761009082BB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8492DE4D23A61E9A004F47FF /* CreateNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewController.swift; sourceTree = "<group>"; };
 		84C3A18123A02BA900B7D638 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		84C3A18323A035E100B7D638 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84C3A18523A0363200B7D638 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -185,6 +187,7 @@
 				848E8BEC23A01755009082BB /* SignupViewController.swift */,
 				848E8BEE23A01761009082BB /* HomeViewController.swift */,
 				84C3A18123A02BA900B7D638 /* InitialViewController.swift */,
+				8492DE4D23A61E9A004F47FF /* CreateNoteViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				848E8BBD23A01727009082BB /* SceneDelegate.swift in Sources */,
 				84C3A18F23A3E31700B7D638 /* Utilities.swift in Sources */,
 				84C3A19823A3E54B00B7D638 /* NoteAnnotation.swift in Sources */,
+				8492DE4E23A61E9A004F47FF /* CreateNoteViewController.swift in Sources */,
 				848E8BEF23A01761009082BB /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

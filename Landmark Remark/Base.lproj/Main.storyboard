@@ -176,6 +176,72 @@
             </objects>
             <point key="canvasLocation" x="4302.898550724638" y="334.82142857142856"/>
         </scene>
+        <!--Create Note-->
+        <scene sceneID="Fi8-kZ-1zT">
+            <objects>
+                <viewController id="SlS-dm-plR" customClass="CreateNoteViewController" customModule="Landmark_Remark" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8EB-1P-nqd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose if other users can see " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnD-qJ-Unk">
+                                <rect key="frame" x="20" y="108" width="261" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Skp-rM-vAZ">
+                                <rect key="frame" x="345" y="108" width="51" height="31"/>
+                                <connections>
+                                    <action selector="makeNotePublic_valueChanged:" destination="SlS-dm-plR" eventType="valueChanged" id="JPV-SE-ju4"/>
+                                </connections>
+                            </switch>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="azL-dz-fOy">
+                                <rect key="frame" x="20" y="152" width="374" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="qaK-BU-5Gg"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor </string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qnD-qJ-Unk" firstAttribute="leading" secondItem="7c4-eV-jNO" secondAttribute="leading" constant="20" id="A4y-mS-YS8"/>
+                            <constraint firstItem="Skp-rM-vAZ" firstAttribute="top" secondItem="qnD-qJ-Unk" secondAttribute="top" id="Cjy-JM-7Do"/>
+                            <constraint firstItem="azL-dz-fOy" firstAttribute="top" secondItem="qnD-qJ-Unk" secondAttribute="bottom" constant="20" id="HDU-hb-PHo"/>
+                            <constraint firstItem="7c4-eV-jNO" firstAttribute="trailing" secondItem="Skp-rM-vAZ" secondAttribute="trailing" constant="20" id="NRu-Gm-bRs"/>
+                            <constraint firstItem="azL-dz-fOy" firstAttribute="leading" secondItem="qnD-qJ-Unk" secondAttribute="leading" id="ccx-Et-u94"/>
+                            <constraint firstItem="Skp-rM-vAZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qnD-qJ-Unk" secondAttribute="trailing" constant="20" id="jde-Ro-RO3"/>
+                            <constraint firstItem="azL-dz-fOy" firstAttribute="trailing" secondItem="Skp-rM-vAZ" secondAttribute="trailing" id="sTM-vc-ni7"/>
+                            <constraint firstItem="qnD-qJ-Unk" firstAttribute="top" secondItem="7c4-eV-jNO" secondAttribute="top" constant="20" id="sr9-bc-CFx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7c4-eV-jNO"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Note" id="Nkp-p3-bhj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TZ9-cR-prO">
+                            <connections>
+                                <action selector="btnCancel_tapped:" destination="SlS-dm-plR" id="tpN-xg-his"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mpD-7f-1OD">
+                            <connections>
+                                <action selector="btnSaveNote_tapped:" destination="SlS-dm-plR" id="nqz-OF-jd5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btnSaveNote_tapped" destination="mpD-7f-1OD" id="FKG-XJ-Kwa"/>
+                        <outlet property="txtView_noteText" destination="azL-dz-fOy" id="wUP-VD-c8f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5c6-O3-d5l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5231.884057971015" y="1002.4553571428571"/>
+        </scene>
         <!--Signup View Controller-->
         <scene sceneID="ZDt-UV-kwA">
             <objects>
@@ -296,6 +362,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wus-c7-393" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3392.753623188406" y="334.82142857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qNs-LI-mu4">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BZ0-IU-0aY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="createnoteVC" automaticallyAdjustsScrollViewInsets="NO" id="y2j-Si-McV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HdO-sh-ubZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SlS-dm-plR" kind="relationship" relationship="rootViewController" id="M6f-to-yD0"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="4321.739130434783" y="1002.4553571428571"/>
         </scene>
     </scenes>
 </document>

@@ -61,4 +61,24 @@ struct DBNote {
         "note_text": note_text
       ]
     }
+    init?(dict: [String: Any], key:String) {
+        guard
+            let note_text = dict["note_text"] as? String,
+            let addedByUser = dict["addedByUser"] as? String,
+            let location = dict["location"] as? String,
+            let lat = dict["lat"] as? Double,
+            let lon = dict["lon"] as? Double,
+            let is_public = dict["is_public"] as? Bool else {
+                return nil
+        }
+        self.ref = nil
+        self.key = key
+        self.lat = lat
+        self.lon = lon
+        self.location = location
+        self.addedByUser = addedByUser
+        self.is_public = is_public
+        self.note_text = note_text
+    }
+
 }
