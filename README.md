@@ -8,11 +8,19 @@ Backend-as-a-Service(BaaS): [Firebase](https://firebase.google.com ).
 Overall MVC design patteren is followed with some modifications according to project requirements.
 
 All code is written in native Swift language and no 3rd party libraries are used except suggested one(Firebase).
+## Getting Started
 
+Application needs a valid account/user to procedd to Home screen. 
+Create an account using SignUp screen or use 
+
+email: test@user.com
+password: 111111
 
 ## Application Scope
 
-Application helps users to view note annotation in maps , Upon tap note is shown in callout custom view with note text, owner and its location. User can also create note by tapping create note button in navigation and save them on the cloud, share it with other users too.
+Application helps users to view note annotation in maps , Upon tap note is shown in callout custom view with note text, owner and its location. 
+User can search with text contained by a Note or User name who created any note.
+User can create note by tapping create note button in navigation and save them on the cloud, share it with other users too.
 
 ## References
 
@@ -50,6 +58,8 @@ Application contains basic required functionality implemented but still has some
 1 - Unit Test
 
 2 - UI Test
+
+3 - Class Diagrams 
 
 ## Contributing
 Pull requests are welcome. 
